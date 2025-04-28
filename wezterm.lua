@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local utils = require("utils")
 local act = wezterm.action
 local mux = wezterm.mux
 local config = wezterm.config_builder()
@@ -76,7 +77,7 @@ config.keys = {
 	{
 		key = "g",
 		mods = "CTRL|SHIFT",
-		action = act.SpawnCommandInNewWindow({ args = { "lazygit" } }),
+		action = utils.SpawnMaximizedCommandInNewWindow({ "lazygit" }),
 	},
 }
 
