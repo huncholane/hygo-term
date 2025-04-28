@@ -74,7 +74,6 @@ local function load_workspace(modname, ws)
 		cwd = config.cwd,
 		workspace = ws,
 	})
-	window:gui_window():maximize()
 	load_tab(ws, tab, config)
 	if config.extra_tabs then
 		for _, tab_config in ipairs(config.extra_tabs) do
@@ -84,7 +83,7 @@ local function load_workspace(modname, ws)
 	end
 end
 
-local function load_workspaces(config)
+local function load_workspaces()
 	local wdir = wezterm.home_dir .. "/.config/wezterm/workspaces"
 	for _, v in ipairs(wezterm.read_dir(wdir)) do
 		-- setup modname agnostic of file system
@@ -99,7 +98,7 @@ end
 function M.setup(config)
 	M.add_keys(config)
 	wezterm.on("gui-startup", function()
-		load_workspaces(config)
+		load_workspaces()
 	end)
 end
 
