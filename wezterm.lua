@@ -20,7 +20,7 @@ config.color_scheme = "Tokyo Night Storm"
 
 -- keymap
 config.keys = {
-	-- vim-like pane movement
+	-- pane keys
 	{ key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
 	{ key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
@@ -29,6 +29,13 @@ config.keys = {
 	{ key = "j", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Down", 3 }) },
 	{ key = "k", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Up", 3 }) },
 	{ key = "l", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Right", 3 }) },
+	{ key = "e", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
+
+	-- tab keys
+	{ key = "q", mods = "CTRL|ALT", action = act.CloseCurrentTab({ confirm = false }) },
+
+	-- window keys
+	{ key = "n", mods = "CTRL|ALT", action = utils.SpawnMaximizedCommandInNewWindow({}) },
 
 	-- debug
 	{ key = "d", mods = "CTRL|SHIFT", action = act.ShowDebugOverlay },
